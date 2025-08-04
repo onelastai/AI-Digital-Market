@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Header({ user, setUser }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,9 +17,18 @@ export default function Header({ user, setUser }) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
-            <div className="text-3xl animate-pulse">🤖</div>
+            <div className="w-10 h-10 relative">
+              <Image
+                src="/onelast-ai-logo.png"
+                alt="One Last AI Logo"
+                width={40}
+                height={40}
+                className="rounded-lg"
+                priority
+              />
+            </div>
             <div>
-              <div className="text-white font-bold text-xl">AI Digital Market</div>
+              <div className="text-white font-bold text-xl">One Last AI</div>
               <div className="text-cyan-400 text-xs font-medium">onelastai.com</div>
             </div>
           </Link>

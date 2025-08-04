@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -54,13 +55,19 @@ export default function Footer() {
             >
               <Link href="/" className="flex items-center space-x-3 mb-4">
                 <motion.div 
-                  whileHover={{ scale: 1.1, rotate: 10 }}
-                  className="text-4xl"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="w-12 h-12 relative"
                 >
-                  🤖
+                  <Image
+                    src="/onelast-ai-logo.png"
+                    alt="One Last AI Logo"
+                    width={48}
+                    height={48}
+                    className="rounded-lg"
+                  />
                 </motion.div>
                 <div>
-                  <div className="text-white font-bold text-2xl">AI Digital Market</div>
+                  <div className="text-white font-bold text-2xl">One Last AI</div>
                   <div className="text-cyan-400 text-sm font-medium">onelastai.com</div>
                 </div>
               </Link>
@@ -131,7 +138,7 @@ export default function Footer() {
         >
           {/* Copyright */}
           <div className="text-gray-400 text-sm">
-            © {currentYear} AI Digital Market (onelastai.com). All rights reserved.
+            © {currentYear} One Last AI (onelastai.com). All rights reserved.
           </div>
 
           {/* Social Links */}
