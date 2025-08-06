@@ -44,8 +44,12 @@ export default function AIAgentTester() {
   const serviceOptions = [
     { value: 'chat', label: '🤖 AI Chat', placeholder: 'Ask me anything about AI...' },
     { value: 'content', label: '📝 Content Writing', placeholder: 'Write a blog post about...' },
-    { value: 'image', label: '🎨 Image Generation', placeholder: 'A futuristic AI robot...' },
-    { value: 'analytics', label: '📊 Analytics', placeholder: 'Analyze user behavior data...' }
+    { value: 'vision', label: '🎨 Vision & Images', placeholder: 'Generate an image of a futuristic AI robot...' },
+    { value: 'data', label: '📊 Data Analysis', placeholder: 'Analyze user behavior data...' },
+    { value: 'code', label: '💻 Code Assistant', placeholder: 'Create a React component for...' },
+    { value: 'sonnet', label: '🎭 Poetry & Creative', placeholder: 'Write a haiku about AI...' },
+    { value: 'logic', label: '🧠 Logic & Reasoning', placeholder: 'Solve this logical problem...' },
+    { value: 'voice', label: '🎵 Voice & Audio', placeholder: 'Convert this text to speech...' }
   ];
 
   const selectedService = serviceOptions.find(s => s.value === serviceType);
@@ -77,7 +81,7 @@ export default function AIAgentTester() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setServiceType(service.value)}
-                className={`p-3 rounded-lg font-medium transition-all duration-300 ${
+                className={`p-3 rounded-lg font-medium transition-all duration-300 text-sm ${
                   serviceType === service.value
                     ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white'
                     : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
@@ -138,20 +142,15 @@ export default function AIAgentTester() {
             }`}>
               {result.success ? (
                 <div>
-                  {serviceType === 'image' ? (
+                  {serviceType === 'vision' ? (
                     <div>
-                      <img 
-                        src={result.data?.imageUrl} 
-                        alt="Generated AI Image"
-                        className="max-w-full rounded-lg mb-4"
-                      />
-                      <p className="text-gray-300">
-                        <strong>Revised Prompt:</strong> {result.data?.revisedPrompt}
-                      </p>
+                      <div className="text-gray-300 whitespace-pre-wrap">
+                        {result.data}
+                      </div>
                     </div>
                   ) : (
                     <div className="text-gray-300 whitespace-pre-wrap">
-                      {result.data?.message || JSON.stringify(result.data, null, 2)}
+                      {result.data || JSON.stringify(result, null, 2)}
                     </div>
                   )}
                   

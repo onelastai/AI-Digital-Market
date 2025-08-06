@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  output: 'standalone',
   images: {
-    domains: ['onelastai.com'],
+    domains: ['onelastai.com', 'localhost'],
   },
   env: {
     CUSTOM_KEY: process.env.CUSTOM_KEY,
